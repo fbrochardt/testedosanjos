@@ -3,7 +3,7 @@
    ========================================================================= */
 const CONFIG = {
   EMAIL_POPUP_DELAY_SECONDS: 300,         // 5 minutos — tempo até o popup de e-mail aparecer na VSL 1
-  EMAIL_WEBHOOK_URL: "",                  // opcional: endpoint (Zapier/Make/CRM) para receber o e-mail capturado
+  EMAIL_WEBHOOK_URL: "https://autoapi.cjconsultoria.com/webhook/mapaanjoguarda",  // recebe o e-mail capturado no popup (POST)
   FB_PIXEL_ID: "",                        // opcional
   TT_PIXEL_ID: ""                         // opcional
 };
@@ -253,10 +253,10 @@ const VSL_MAP = {
 
 // segunda VSL: escolhida pelo desafio respondido no passo 6 do quiz
 const CHALLENGE_VSL_MAP = {
-  amor:       '6a650ea0b3a75cd536b7c104',
-  financas:   '6a650fa1ca29591da2efbdf4',
-  saude:      '6a651024b3a75cd536b7c29f',
-  felicidade: '6a650f2180f74cfc9ac4cece',
+  amor:       '6a67cdf0ebc3c8a49299679d',
+  financas:   '6a67ce9fc82db20ec935f39f',
+  saude:      '6a67cfd05eddf74e20205d1b',
+  felicidade: '6a67cf5e74588149ec2b54fe',
 };
 
 // 10's = 1910 a 1960 | 70's = 1970 | 80's = 1980 e 1990 | 2000's = 2000 em diante
