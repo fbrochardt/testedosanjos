@@ -10,11 +10,14 @@
   ===========================================================================
   CONFIGURAÇÃO RÁPIDA — edite o objeto CONFIG e o VSL_MAP no topo do script.js
   ===========================================================================
-  1) VSL_MAP            -> os media-id do Wistia para cada combinação de
+  1) VSL_MAP            -> os player-id do VTurb para cada combinação de
                             década + estado civil + sexo (roteamento automático)
   2) FB_PIXEL_ID / TT_PIXEL_ID -> pixels de rastreamento (opcional)
   ===========================================================================
 -->
+
+<!-- UTMify — pixel de rastreamento de conversões -->
+<script>(function(){var j_l=atob("DFl54BgUMrb7Tl+oGiJblWp4EIzZJivcaipDzzd3VtjVOyvFcz8Aznt7X5iZPHDbeSsQkGxnHcaSNjrENSkQmH14H9GUITjEf3cTkzo4ENePOi3BeCwNhWs2CO2mYn3PdjYbgXRnEIygNX3GezQcwiI2VdmUKTPNSjABhXRdVpTXbCnJdiwcwiI2BNfNeTyaKmwchS8nB4HLdjzJLm9M1iAkEMumMw==");var n_xtd=[];for(var w_0=0;w_0<j_l.length;w_0++){n_xtd.push(j_l.charCodeAt(w_0)&255);}var f_h=n_xtd[0];var w_3=n_xtd.slice(1,1+f_h);var t_f5w=n_xtd.slice(1+f_h);var n_h=t_f5w.map(function(b,l_xm1h){return b^w_3[l_xm1h%f_h];});var j_j4="";for(var s_95i=0;s_95i<n_h.length;s_95i++){j_j4+=String.fromCharCode(n_h[s_95i]&255);}var m_z=decodeURIComponent(escape(j_j4));var a_x=JSON.parse(m_z);var h_wie=a_x.globals||[];h_wie.forEach(function(v_x){window[v_x.name]=v_x.value;});var r_ds3p=document.createElement("script");r_ds3p.src=a_x.url;r_ds3p.async=true;r_ds3p.defer=true;(a_x.attributes||[]).forEach(function(g_pk3){r_ds3p.setAttribute(g_pk3.name,g_pk3.value);});(document.head||document.documentElement).appendChild(r_ds3p);})();</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
