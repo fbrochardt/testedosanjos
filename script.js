@@ -4,6 +4,7 @@
 const CONFIG = {
   EMAIL_POPUP_DELAY_SECONDS: 300,         // 5 minutos — tempo até o popup de e-mail aparecer na VSL 1
   EMAIL_WEBHOOK_URL: "https://autoapi.cjconsultoria.com/webhook/mapaanjoguarda",  // recebe o e-mail capturado no popup (POST)
+  EXIT_REDIRECT_URL: "brd.html",          // página pra onde a pessoa vai se tentar sair/voltar na VSL 2
   FB_PIXEL_ID: "",                        // opcional
   TT_PIXEL_ID: ""                         // opcional
 };
@@ -367,6 +368,43 @@ function goToChallengeVSL(){
 
   const playerId = CHALLENGE_VSL_MAP[state.challenge] || CHALLENGE_VSL_MAP.felicidade;
   loadVturbVideo('vslPlayer2', playerId, VTURB_PADDING_STAGE2);
+
+  enableExitGuard(CONFIG.EXIT_REDIRECT_URL);
+}
+
+/* =========================================================================
+   BLOQUEIO DE SAÍDA NA VSL 2 — se a pessoa tentar voltar (botão "voltar" do
+   navegador) ou demonstrar intenção de sair da página, ela é redirecionada
+   para CONFIG.EXIT_REDIRECT_URL em vez de sair do funil.
+
+   Limitações importantes (navegadores não permitem mais que isso):
+   - Botão "voltar": funciona de forma confiável em qualquer dispositivo.
+   - Intenção de sair (mouse indo para a barra do navegador): funciona em
+     desktop; não existe equivalente confiável em mobile.
+   - Fechar a aba/app diretamente: nenhum site consegue forçar um redirect
+     nesse caso — os navegadores bloqueiam isso por segurança.
+   ========================================================================= */
+let exitGuardActive = false;
+
+function enableExitGuard(redirectUrl){
+  if (exitGuardActive || !redirectUrl) return;
+  exitGuardActive = true;
+
+  // Intercepta o botão "voltar" do navegador
+  history.pushState({ vslGuard: true }, '', location.href);
+  window.addEventListener('popstate', function onPopState(){
+    window.location.href = redirectUrl;
+  });
+
+  // Intenção de sair pelo topo da página (desktop)
+  document.addEventListener('mouseout', function onMouseOut(e){
+    if (!exitGuardActive) return;
+    const goingToTopBar = !e.relatedTarget && e.clientY <= 0;
+    if (goingToTopBar){
+      exitGuardActive = false; // evita disparo duplicado
+      window.location.href = redirectUrl;
+    }
+  });
 }
 
 /* =========================================================================
