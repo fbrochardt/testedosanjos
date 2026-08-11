@@ -146,6 +146,41 @@
   @media (max-width:480px){
     .stack{ transform:scale(.82); transform-origin:top center; height:200px; }
   }
+
+  .upsell-actions{
+    max-width:440px;
+    margin:20px auto 0;
+    padding:0 20px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+  }
+  .btn-accept{
+    display:block;
+    width:100%;
+    background:linear-gradient(180deg,#4bd36a,#1f9a3c);
+    color:#fff;
+    font-family:var(--font-head);
+    font-weight:800;
+    font-size:clamp(15px,2.6vw,18px);
+    border:none;
+    padding:18px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 10px 26px rgba(20,120,40,.4);
+    margin-bottom:14px;
+  }
+  .btn-refuse{
+    display:inline-block;
+    background:none;
+    border:none;
+    color:var(--text-sub, #9fb3d9);
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:14px;
+    text-decoration:underline;
+    cursor:pointer;
+  }
 </style>
 </head>
 <body>
@@ -160,7 +195,7 @@
 
   <div class="copy">
     <p>Espere! Eu não conseguiria viver comigo mesma se deixasse você perder essa oportunidade por conta de dinheiro.</p>
-    <p>É por isso que estou oferecendo o <b>"Conjunto da Prosperidade"</b> mais os bônus adicionais, por apenas <b>R$97</b> (metade do valor), se você agir agora.</p>
+    <p>É por isso que estou oferecendo o <b>"Conjunto da Prosperidade"</b> mais os bônus adicionais, por apenas <b>R$147</b> (metade do valor), se você agir agora.</p>
   </div>
 
   <div class="stack">
@@ -172,7 +207,26 @@
       <div class="t">Conjunto da Prosperidade</div>
     </div>
   </div>
+
+  <div class="upsell-actions">
+    <button class="kirvano-payment-trigger btn-accept">Sim, eu quero garantir meu desconto de 50%!</button>
+    <button class="kirvano-refuse-trigger btn-refuse">Não, obrigado. Prefiro continuar sem essa oferta.</button>
+  </div>
 </div>
+
+<!--
+  Script de upsell da Kirvano — fica no fim do body, depois dos botões
+  ".kirvano-payment-trigger" e ".kirvano-refuse-trigger" existirem no DOM.
+  nextPageURL e refusePageURL são null: aceitando ou recusando, a Kirvano
+  leva para a página de obrigado/recusa padrão configurada na oferta,
+  já que esta é a última etapa da cadeia de upsell/downsell.
+-->
+<script>
+  var offer = "97a04e3f-f721-4d71-86f3-0e1566da3ad1";
+  var nextPageURL = null;
+  var refusePageURL = null;
+</script>
+<script src="https://snippets.kirvano.com/upsell.min.js"></script>
 
 </body>
 </html>
