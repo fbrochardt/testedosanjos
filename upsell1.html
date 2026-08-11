@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espere! Atualização Importante | Mapa do Anjo da Guarda</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:'Nunito', sans-serif;
+    background:#eaf6fd;
+    color:#123;
+  }
+
+  .top-banner{
+    background:#d0110f;
+    color:#fff;
+    text-align:center;
+    padding:22px 16px;
+  }
+  .top-banner p{
+    margin:0 0 10px;
+    font-size:clamp(14px,2.3vw,17px);
+    line-height:1.5;
+  }
+  .top-banner p:last-child{ margin-bottom:0; }
+  .top-banner .warn{ color:#ffe14d; }
+
+  .wait-section{
+    max-width:900px;
+    margin:0 auto;
+    padding:40px 24px 10px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .stop-icon{
+    width:96px; height:96px; flex:none;
+    background:#d0110f;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(208,17,15,.35);
+  }
+  .stop-icon svg{ width:46px; height:46px; }
+
+  .wait-text{ flex:1; min-width:260px; }
+  .wait-text .espere{
+    color:#d0110f;
+    font-weight:900;
+    font-size:clamp(34px,6vw,46px);
+    display:block;
+    margin-bottom:8px;
+  }
+  .wait-text .msg{
+    background:#fff44d;
+    color:#111;
+    font-weight:800;
+    font-size:clamp(15px,2.4vw,18px);
+    line-height:1.4;
+    padding:2px 6px;
+    display:inline;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  .video-wrap{
+    max-width:400px;
+    margin:34px auto 60px;
+    padding:0 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <p>Clicar no botão de "voltar" pode resultar na <strong>cobrança duplicada</strong> do seu pedido.</p>
+  <p class="warn"><strong>IMPORTANTE! Não feche esta janela nem clique no botão de "voltar".</strong></p>
+</div>
+
+<div class="wait-section">
+  <div class="stop-icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 12.5V6a1.5 1.5 0 0 1 3 0v5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11 11V4.5a1.5 1.5 0 0 1 3 0V11" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14 11.2V6a1.5 1.5 0 0 1 3 0v7" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M17 13V9.5a1.5 1.5 0 0 1 3 0V15c0 3.5-2.5 6.5-6.5 6.5H12c-2 0-3-.5-4.2-1.9L4 15.2c-.7-.9-.5-1.9.3-2.5.8-.6 1.9-.5 2.6.3L8 14.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="wait-text">
+    <span class="espere">ESPERE!</span>
+    <span class="msg">Por favor, assista à importante atualização para novos membros no vídeo abaixo.</span>
+  </div>
+</div>
+
+<div class="video-wrap">
+  <!-- VSL do Upsell 1 -->
+  <vturb-smartplayer id="vid-6a7a7a4ce0c3b18c751cdc2a" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 178.14814814814815% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+  <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f896c4e4-f70b-496c-9564-a55b2ae856b4/players/6a7a7a4ce0c3b18c751cdc2a/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+</div>
+
+<script>
+  // Desencoraja o uso do botão "voltar" nesta página (reforça o aviso do banner),
+  // sem redirecionar para lugar nenhum — só evita que a pessoa saia sem querer.
+  history.pushState(null, '', location.href);
+  window.addEventListener('popstate', function(){
+    history.pushState(null, '', location.href);
+  });
+</script>
+
+</body>
+</html>
