@@ -41,7 +41,40 @@
   .video-wrap{
     max-width:400px;
     margin:0 auto;
-    padding:24px 20px 60px;
+    padding:24px 20px 0;
+  }
+
+  .upsell-actions{
+    max-width:440px;
+    margin:26px auto 60px;
+    padding:0 20px;
+    text-align:center;
+  }
+  .btn-accept{
+    display:block;
+    width:100%;
+    background:linear-gradient(180deg,#4bd36a,#1f9a3c);
+    color:#fff;
+    font-family:'Nunito', sans-serif;
+    font-weight:800;
+    font-size:clamp(15px,2.6vw,18px);
+    border:none;
+    padding:18px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 10px 26px rgba(20,120,40,.35);
+    margin-bottom:14px;
+  }
+  .btn-refuse{
+    display:inline-block;
+    background:none;
+    border:none;
+    color:#6b7a8d;
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:underline;
+    cursor:pointer;
   }
 </style>
 </head>
@@ -58,6 +91,11 @@
   <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f896c4e4-f70b-496c-9564-a55b2ae856b4/players/6a7a7a2d784b30f21a6db72f/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 </div>
 
+<div class="upsell-actions">
+  <button class="kirvano-payment-trigger btn-accept">Sim, eu quero garantir essa oferta especial!</button>
+  <button class="kirvano-refuse-trigger btn-refuse">Não, obrigado. Prefiro continuar sem essa oferta.</button>
+</div>
+
 <script>
   // Desencoraja o uso do botão "voltar" nesta página, sem redirecionar
   // para lugar nenhum — só evita que a pessoa saia sem querer.
@@ -66,6 +104,19 @@
     history.pushState(null, '', location.href);
   });
 </script>
+
+<!--
+  Script de upsell da Kirvano — fica no fim do body, depois dos botões
+  ".kirvano-payment-trigger" e ".kirvano-refuse-trigger" existirem no DOM.
+  nextPageURL é null aqui: se aceitar, a Kirvano leva para a página de
+  obrigado padrão configurada na oferta (não há mais upsell depois deste).
+-->
+<script>
+  var offer = "3dea019a-98d5-4526-b874-b52513b2d006";
+  var nextPageURL = null;
+  var refusePageURL = "https://testedosanjos.sintonialuz.site/downsell2.html";
+</script>
+<script src="https://snippets.kirvano.com/upsell.min.js"></script>
 
 </body>
 </html>
