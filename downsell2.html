@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parabéns, você foi selecionado! | Mapa do Anjo da Guarda</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-1:#0a1530;
+    --bg-2:#16305e;
+    --bg-3:#1e4079;
+    --gold:#ffd447;
+    --font-head:'Baloo 2', sans-serif;
+    --font-body:'Nunito', sans-serif;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:var(--font-body);
+    background:radial-gradient(ellipse at 50% -10%, var(--bg-3), var(--bg-2) 45%, var(--bg-1) 100%);
+    color:#eaf3ff;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  .stars{position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(1.6px 1.6px at 10% 12%, rgba(255,255,255,.9), transparent),
+      radial-gradient(1.6px 1.6px at 82% 8%, rgba(255,255,255,.7), transparent),
+      radial-gradient(1.2px 1.2px at 34% 22%, rgba(255,255,255,.65), transparent),
+      radial-gradient(1.8px 1.8px at 66% 30%, rgba(255,255,255,.8), transparent),
+      radial-gradient(1.2px 1.2px at 90% 44%, rgba(255,255,255,.55), transparent),
+      radial-gradient(1.6px 1.6px at 15% 55%, rgba(255,255,255,.7), transparent),
+      radial-gradient(1.2px 1.2px at 48% 65%, rgba(255,255,255,.55), transparent),
+      radial-gradient(1.8px 1.8px at 75% 75%, rgba(255,255,255,.75), transparent),
+      radial-gradient(1.2px 1.2px at 25% 88%, rgba(255,255,255,.5), transparent),
+      radial-gradient(1.6px 1.6px at 95% 90%, rgba(255,255,255,.6), transparent);
+    background-repeat:repeat;
+    background-size:480px 480px;
+  }
+
+  .wrap{ position:relative; z-index:1; max-width:900px; margin:0 auto; padding:40px 24px 70px; }
+
+  .badge-box{
+    background:#fff;
+    border:3px dashed #e0201c;
+    border-radius:6px;
+    text-align:center;
+    padding:22px 24px;
+    margin-bottom:40px;
+  }
+  .badge-box .h1{
+    color:#e0201c;
+    font-style:italic;
+    font-weight:800;
+    font-size:clamp(22px,4.4vw,30px);
+    margin:0 0 8px;
+  }
+  .badge-box .h2{
+    color:#1c2a3a;
+    font-size:clamp(16px,3vw,20px);
+    margin:0;
+  }
+  .badge-box .h2 b{ font-weight:800; }
+
+  .copy p{
+    font-size:clamp(16px,2.6vw,20px);
+    line-height:1.6;
+    margin:0 0 20px;
+    text-align:center;
+  }
+  .copy p b{ color:var(--gold); }
+  .copy p q{ quotes:none; }
+
+  .stack{
+    position:relative;
+    max-width:420px;
+    margin:50px auto 10px;
+    height:230px;
+  }
+  .book{
+    position:absolute;
+    width:150px; height:190px;
+    border-radius:6px;
+    box-shadow:0 14px 30px rgba(0,0,0,.5);
+    padding:16px 12px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    text-align:center;
+    font-family:var(--font-head);
+    font-weight:700;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.25);
+  }
+  .book .t{ font-size:12.5px; line-height:1.3; letter-spacing:.3px; text-transform:uppercase; }
+
+  .book1{ /* Os Mantras Divinos Personalizados */
+    background:linear-gradient(160deg,#1f7a4d,#0e4a2c);
+    left:0; top:26px;
+    transform:rotate(-11deg);
+    z-index:1;
+  }
+  .book2{ /* Mapa da Alma */
+    background:linear-gradient(160deg,#3a2c66,#1c1440);
+    left:110px; top:6px;
+    transform:rotate(-4deg);
+    z-index:2;
+  }
+  .book3{ /* Mapa Completo do Tarot */
+    background:linear-gradient(160deg,#3a2c66,#1c1440);
+    left:225px; top:12px;
+    transform:rotate(7deg);
+    z-index:1;
+  }
+  .book4{ /* Conjunto da Prosperidade - capa central, em destaque */
+    width:168px; height:210px;
+    background:linear-gradient(160deg,#4a2f7a,#241350);
+    left:120px; top:36px;
+    transform:rotate(0deg);
+    z-index:3;
+    border:1px solid var(--gold);
+    box-shadow:0 18px 40px rgba(0,0,0,.6), 0 0 0 1px rgba(255,212,71,.25);
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    gap:10px;
+  }
+  .book4 .t{ font-size:14px; }
+  .book4 .wheel{
+    width:70px; height:70px;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    background:
+      radial-gradient(circle, transparent 55%, rgba(255,212,71,.18) 56%),
+      conic-gradient(from 0deg, rgba(255,212,71,.35) 0 8%, transparent 8% 25%, rgba(255,212,71,.35) 25% 33%, transparent 33% 50%, rgba(255,212,71,.35) 50% 58%, transparent 58% 75%, rgba(255,212,71,.35) 75% 83%, transparent 83% 100%);
+  }
+
+  @media (max-width:480px){
+    .stack{ transform:scale(.82); transform-origin:top center; height:200px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars"></div>
+
+<div class="wrap">
+  <div class="badge-box">
+    <p class="h1">Parabéns, você foi selecionado!</p>
+    <p class="h2">Resgate seu <b>desconto instantâneo de 50%.</b></p>
+  </div>
+
+  <div class="copy">
+    <p>Espere! Eu não conseguiria viver comigo mesma se deixasse você perder essa oportunidade por conta de dinheiro.</p>
+    <p>É por isso que estou oferecendo o <b>"Conjunto da Prosperidade"</b> mais os bônus adicionais, por apenas <b>R$147</b> (metade do valor), se você agir agora.</p>
+  </div>
+
+  <div class="stack">
+    <div class="book book1"><div class="t">Os Mantras Divinos Personalizados</div></div>
+    <div class="book book2"><div class="t">Mapa da Alma</div></div>
+    <div class="book book3"><div class="t">Mapa Completo do Tarot</div></div>
+    <div class="book book4">
+      <div class="wheel"></div>
+      <div class="t">Conjunto da Prosperidade</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
