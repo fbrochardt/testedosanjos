@@ -73,8 +73,41 @@
 
   .video-wrap{
     max-width:400px;
-    margin:34px auto 60px;
+    margin:34px auto 0;
     padding:0 20px;
+  }
+
+  .upsell-actions{
+    max-width:440px;
+    margin:26px auto 60px;
+    padding:0 20px;
+    text-align:center;
+  }
+  .btn-accept{
+    display:block;
+    width:100%;
+    background:linear-gradient(180deg,#4bd36a,#1f9a3c);
+    color:#fff;
+    font-family:'Nunito', sans-serif;
+    font-weight:800;
+    font-size:clamp(15px,2.6vw,18px);
+    border:none;
+    padding:18px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 10px 26px rgba(20,120,40,.35);
+    margin-bottom:14px;
+  }
+  .btn-refuse{
+    display:inline-block;
+    background:none;
+    border:none;
+    color:#6b7a8d;
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:underline;
+    cursor:pointer;
   }
 </style>
 </head>
@@ -106,6 +139,11 @@
   <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/f896c4e4-f70b-496c-9564-a55b2ae856b4/players/6a7a7a4ce0c3b18c751cdc2a/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 </div>
 
+<div class="upsell-actions">
+  <button class="kirvano-payment-trigger btn-accept">Sim, eu quero garantir essa oferta especial!</button>
+  <button class="kirvano-refuse-trigger btn-refuse">Não, obrigado. Prefiro continuar sem essa oferta.</button>
+</div>
+
 <script>
   // Desencoraja o uso do botão "voltar" nesta página (reforça o aviso do banner),
   // sem redirecionar para lugar nenhum — só evita que a pessoa saia sem querer.
@@ -114,6 +152,17 @@
     history.pushState(null, '', location.href);
   });
 </script>
+
+<!--
+  Script de upsell da Kirvano — fica no fim do body, depois dos botões
+  ".kirvano-payment-trigger" e ".kirvano-refuse-trigger" existirem no DOM.
+-->
+<script>
+  var offer = "9c835a7f-7134-4fad-bca8-34d388516586";
+  var nextPageURL = "https://testedosanjos.sintonialuz.site/upsell2.html";
+  var refusePageURL = "https://testedosanjos.sintonialuz.site/downsell1.html";
+</script>
+<script src="https://snippets.kirvano.com/upsell.min.js"></script>
 
 </body>
 </html>
